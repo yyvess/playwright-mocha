@@ -1,0 +1,22 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+      - uses: microsoft/playwright-github-action@v1
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run test:firefox
+      - run: npm run test:webkit

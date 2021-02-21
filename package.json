@@ -1,0 +1,32 @@
+{
+  "name": "play",
+  "version": "1.0.0",
+  "description": "Integration testing with Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha bootstrap.js -recursive tests --timeout 30000",
+    "test:firefox": "cross-env BROWSER=firefox npm run test",
+    "test:webkit": "cross-env BROWSER=webkit npm run test",
+    "test:head": "cross-env HEAD=true npm run test",
+    "test:watch": "cross-env HEAD=true WATCH=true npm run test -- --watch",
+    "lint": "eslint *.js",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "author": "Yves Galante",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.0",
+    "mocha": "^8.3.0",
+    "playwright": "^1.8.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-mocha": "^8.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  }
+}
